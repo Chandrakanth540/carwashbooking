@@ -1,0 +1,122 @@
+<!DOCTYPE html>    
+{% load static %}
+<html>    
+<head>         
+    <style>
+        .alert{
+            
+            background-color: #5916f4;
+            color: white;
+          }
+        body{
+            background-image:url( 'static/images/wanted.jpg' )
+        }
+        .login{  
+                width: 382px;  
+                overflow: hidden;  
+                margin: auto;  
+                margin: 20 0 0 450px;  
+                padding: 80px;  
+                background-image:url( 'static/images/destination_9.jpg' )  ;
+                border-radius: 15px ;  
+                  
+        }  
+        h2{  
+            text-align: center;  
+            color: #277582;  
+            padding: 20px;  
+        }  
+        label{  
+            color: #08ffd1;  
+            font-size: 17px;  
+        }  
+        #Uname{  
+            width: 300px;  
+            height: 30px;  
+            border: none;  
+            border-radius: 3px;  
+            padding-left: 8px;  
+        }  
+        #Pass{  
+            width: 300px;  
+            height: 30px;  
+            border: none;  
+            border-radius: 3px;  
+            padding-left: 8px;  
+              
+        }  
+        #log{  
+            width: 300px;  
+            height: 30px;  
+            border: none;  
+            border-radius: 17px;  
+            padding-left: 7px;  
+            color: blue;  
+          
+          
+        }  
+        
+        span{  
+            color: white;  
+            font-size: 17px;  
+        }  
+        a{  
+            float: right;  
+            width: 60px;  
+            height: 30px; 
+            background-color: #08ffd1; 
+            text-decoration: none; 
+            
+        }   
+    </style> 
+    <title>Login Form</title>    
+    <link rel="stylesheet" type="text/css" >    
+</head>  
+
+<body>
+    <div>
+        <h2>Booking Page.....</h2><br> 
+        {%if messages%}
+            {% for message in messages%}
+            <div class="alert alert-warning" role="alert">
+                <h3 class="alert-heading">{{message}}</h3>
+            </div>
+            {%endfor%}
+        {%endif%}
+    </div>  
+    <div class="login">    
+    <form id="login" method="post" action="bookeddetails"> 
+        <label align="right"><b> <h3 ><a href="index" >Home</a></h3></b></label><br><br>
+        {% csrf_token %}   
+        <label><h3><b>Username   :{{user.username}}</b></h3>     </label>    
+        <label><h3><b>Email   :{{user.email}}</b></h3>     </label>
+        <label><b>Phone number    
+        </b>  
+        </label>    
+        <input type="text" name="number" id="Uname" placeholder="phone Number" required="required">    
+        <br><br>  
+
+        <label for="city">Choose city:</label>
+        <select name="city" id="cities">
+            {% for city in cities %}
+                <option value={{city.name}}>{{city.name}}</option>
+            {% endfor%}
+        </select>
+
+        <br><br><label for="service">Choose service:</label>
+        <select name="service" id="services" ><br><br>
+            {% for service in names %}
+                <option value="{{service.servicename}}">{{service.servicename}}</option>
+            {% endfor%}<br>
+        </select>
+
+        <br><br><label for="booking">Choose Date:</label>
+        <input type="date" id="book" name="bookdate" required="required" min="2022-12-05" max="2022-12-30">
+        <br><br>  
+            <input type="submit" name="log" id="log" value="Book Here">       
+            <br><br>    
+                
+    </form>     
+    </div> 
+</body>    
+</html>

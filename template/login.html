@@ -1,0 +1,109 @@
+<!DOCTYPE html>    
+{% load static %}
+<html>    
+<head>   
+    <style>
+        body{
+            background-image:url( 'static/images/chennai.jpg' )
+        }
+        .alert{
+            
+            background-color: #f41628;
+            width:400px; 
+            color: white;
+          }
+        .login{  
+                width: 382px;  
+                overflow: hidden;  
+                margin: auto;  
+                margin: 20 0 0 450px;  
+                padding: 80px;  
+                background-image:url( 'static/images/chennai.jpg' )  ;
+                border-radius: 15px ;  
+                  
+        }  
+        h2{  
+            text-align: center;  
+            color: #277582;  
+            padding: 20px;  
+        }  
+        label{  
+            color: #08ffd1;  
+            font-size: 17px;  
+        }  
+        #email{  
+            width: 300px;  
+            height: 30px;  
+            border: none;  
+            border-radius: 3px;  
+            padding-left: 8px;  
+        }  
+        #Pass{  
+            width: 300px;  
+            height: 30px;  
+            border: none;  
+            border-radius: 3px;  
+            padding-left: 8px;  
+              
+        }  
+        #log{  
+            width: 300px;  
+            height: 30px;  
+            border: none;  
+            border-radius: 17px;  
+            padding-left: 7px;  
+            color: blue;  
+          
+          
+        }  
+        span{  
+            color: white;  
+            font-size: 17px;  
+        }  
+        a{  
+            float: right;  
+            background-color: grey;  
+            text-decoration: none;
+        }   
+    </style> 
+    <title>Login Form</title>    
+    <link rel="stylesheet" type="text/css" >    
+</head>    
+<body >    
+    <h2>Login Page</h2><br>  
+    
+    <div class="login">    
+    <form id="login" method="post" action="logindetails"> 
+        {% csrf_token %}   
+        <label align="right"><b> <h3 ><a href="homepage" >Go Back</a></h3></b></label><br>
+        <div align="center">
+            {%if messages%}
+            {% for message in messages%}
+            <div class="alert alert-warning" role="alert">
+                <h3 class="alert-heading">{{message}}</h3>
+              </div>
+              {%endfor%}
+              {%endif%}
+        </div><br>
+        <label><b>Username<br>    
+        </b>    
+        </label>    
+        <input type="text" name="username" id="email" placeholder="username" required="required">    
+        <br><br>    
+        <label><b>Password     
+        </b>    
+        </label>    
+        <input type="Password" name="password" id="Pass" placeholder="Password" required="required">    
+        <br><br>    
+        <input type="submit" name="log" id="log" value="Log In Here">       
+        <br><br>    
+        <input type="checkbox" id="check">    
+        <span>Remember me</span>    
+        <br><br>    
+        Forgot <a href="homepage">Password</a>    
+    </form>     
+</div> 
+
+   
+</body>    
+</html>

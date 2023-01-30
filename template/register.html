@@ -1,0 +1,125 @@
+<!DOCTYPE html>    
+<html>    
+<head>   
+    <style>
+        body  
+        {  
+            margin: 0;  
+            padding: 0;  
+            background-image:url( 'static/images/wanted.jpg' ); 
+            font-family: 'Arial';  
+        }  
+        .alert{
+           
+            background-color: #f41630;
+            width:500px; 
+            color: white;
+          }
+        .login{  
+                width: 382px;  
+                overflow: hidden;  
+                margin: auto;  
+                margin: 20 0 0 450px;  
+                padding: 80px;  
+                background-image:url( 'static/images/wanted.jpg' );  
+                border-radius: 15px ;  
+                  
+        }  
+        h2{  
+            text-align: center;  
+            color: #277582;  
+            padding: 20px;  
+        }  
+        label{  
+            color: #08ffd1;  
+            font-size: 17px;  
+        }  
+        #Uname{  
+            width: 300px;  
+            height: 30px;  
+            border: none;  
+            border-radius: 3px;  
+            padding-left: 8px;  
+        }  
+        #Pass{  
+            width: 300px;  
+            height: 30px;  
+            border: none;  
+            border-radius: 3px;  
+            padding-left: 8px;  
+              
+        }  
+        #log{  
+            width: 300px;  
+            height: 30px;  
+            border: none;  
+            border-radius: 17px;  
+            padding-left: 7px;  
+            color: blue;  
+          
+          
+        }  
+        span{  
+            color: white;  
+            font-size: 17px;  
+        }  
+        a{  
+            float: right;  
+             
+            text-align:right;
+            text-decoration: none;
+        }   
+    </style> 
+    <title>Register Form</title>    
+    <link rel="stylesheet" type="text/css" >    
+</head>    
+<body >    
+    <h2>Register </h2><br>  
+    <div align="center">
+        {%if messages%}
+        {% for message in messages%}
+        <div class="alert alert-warning" role="alert">
+            <h3 class="alert-heading">{{message}}</h3>
+          </div>
+          {%endfor%}
+          {%endif%}
+    </div>
+    <div class="login">    
+    <form id="login" method="post" action="registerdetails"> 
+        {% csrf_token %} 
+        <label align="right"><b> <h3 ><a href="homepage" ><- Go Back</a></h3></b></label><br><br> 
+        <label><b>User Name     
+        </b>    
+        </label>    
+        <input type="text" name="name" id="Uname" placeholder="Username" required="required">    
+        <br><br>  
+        <label><b>Email Id<br>    
+        </b>    
+        </label>    
+        <input type="email" name="email" id="Pass" placeholder="email-id" required="required">    
+        <br><br>   
+        <label><b>Phone Number <br>    
+        </b>    
+        </label>    
+        <input type="text" name="phno" id="Pass" placeholder="Phone Number" required="required">    
+        <br><br> 
+        <label><b>Password     
+        </b>    
+        </label>    
+        <input type="Password" name="password1" id="Pass" placeholder="Password" required="required">    
+        <br><br>  
+        <label><b>Re-type Password     
+        </b>    
+        </label>    
+        <input type="Password" name="password2" id="Pass" placeholder="Password" required="required">    
+        <br><br>    
+        <input type="submit" name="regis" id="log" value="Register Here">       
+        <br><br>  
+        <input type="checkbox" id="check">    
+        <span>Remember me</span><br>    
+            
+    </form>
+   
+</div> 
+</body>    
+</html>
